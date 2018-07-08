@@ -115,6 +115,7 @@ int main(int argc, char *argv[]) {
         printf("S: %lf, E: %lf\n", TimeSpecToSeconds(&start), TimeSpecToSeconds(&end));
         printf("Tempo: %lf segundos\n", TimeSpecToSeconds(&end) -
                                         TimeSpecToSeconds(&start));
+        cout<<"--------------------------------------------------"<<endl;
         free(M3);
         M3=create_space2D(atoi(linha.c_str()),atoi(Coluna.c_str()));
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&start);
