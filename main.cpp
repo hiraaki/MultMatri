@@ -103,11 +103,16 @@ int main(int argc, char *argv[]) {
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&start);
         MulM1M2(M1,M2,M3,atoi(linha.c_str()),atoi(Coluna.c_str()));
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&end);
-
+        printf("S: %lf, E: %lf\n", TimeSpecToSeconds(&start), TimeSpecToSeconds(&end));
+        printf("Tempo: %lf segundos\n", TimeSpecToSeconds(&end) -
+                                        TimeSpecToSeconds(&start));
     }else if(op=="t"){
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&start);
         MulM1M2T(M1,M2,M3,atoi(linha.c_str()),atoi(Coluna.c_str()));
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&end);
+        printf("S: %lf, E: %lf\n", TimeSpecToSeconds(&start), TimeSpecToSeconds(&end));
+        printf("Tempo: %lf segundos\n", TimeSpecToSeconds(&end) -
+                                        TimeSpecToSeconds(&start));
     } else if(op=="o|t"){
         clock_gettime(CLOCK_PROCESS_CPUTIME_ID,&start);
         MulM1M2(M1,M2,M3,atoi(linha.c_str()),atoi(Coluna.c_str()));
@@ -126,9 +131,7 @@ int main(int argc, char *argv[]) {
                                         TimeSpecToSeconds(&start));
     }
 
-    printf("S: %lf, E: %lf\n", TimeSpecToSeconds(&start), TimeSpecToSeconds(&end));
-    printf("Tempo: %lf segundos\n", TimeSpecToSeconds(&end) -
-                                    TimeSpecToSeconds(&start));
+
 
     free(M1);
     free(M2);
